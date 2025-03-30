@@ -1,5 +1,5 @@
 # utils/html_generator.py
-from utils.themes import get_theme_colors
+from config.themes import get_theme_colors
 
 
 def generate_html_contract(contract, theme_name):
@@ -454,8 +454,8 @@ def generate_html_contract(contract, theme_name):
                 <h2>1. FEES PAYABLE TO THE PERFORMER</h2>
                 <ul>
                     <li>Total fee for the performance is <span class="highlight">${contract.fees.total_fee:.2f} USD</span>.</li>
-                    {"<li>A <span class='highlight'>non-refundable deposit of ${contract.fees.deposit_amount:.2f} USD</span> is required within 48 hours of signing.</li>" if contract.fees.requires_deposit else ""}
-                    {"<li>Remaining <span class='highlight'>balance of ${contract.fees.balance:.2f} USD</span> is due immediately upon completion of the performance.</li>" if contract.fees.requires_deposit else ""}
+                    {f"<li>A <span class='highlight'>non-refundable deposit of {contract.fees.deposit_amount:.2f} USD</span> is required within 48 hours of signing.</li>" if contract.fees.requires_deposit else ""}
+                    {f"<li>Remaining <span class='highlight'>balance of {contract.fees.balance:.2f} USD</span> is due immediately upon completion of the performance.</li>" if contract.fees.requires_deposit else ""}
                     <li>Payment may also be made in advance.</li>
                     <li>'Completion' is defined as the end of the {contract.services.duration_minutes}-minute {contract.services.performance_type} or the moment the Performer ceases performing due to unforeseen circumstances. Full payment remains due unless otherwise agreed in writing.</li>
                     <li><strong>Accepted Payment Methods:</strong> {contract.fees.payment_methods}</li>

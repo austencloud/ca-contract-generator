@@ -26,7 +26,7 @@ from ui.section_forms.safety_form import SafetyForm
 
 from models.contract import Contract
 from utils.pdf_generator import generate_pdf
-from utils.themes import get_available_themes
+from config.themes import get_available_themes
 
 
 class MainWindow(QMainWindow):
